@@ -134,8 +134,6 @@ class NickNameViewController: UIViewController {
             request.addValue("https://counts.live/\(currSocialNetworkApi[1])/\(nickname)", forHTTPHeaderField: "Referer")
             request.addValue("keep-alive", forHTTPHeaderField: "Connection")
             
-            print("currSocialNetwork", self.currSocialNetwork)
-            
             NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {(response, data, error) in
                 guard let data = data else { return }
                 

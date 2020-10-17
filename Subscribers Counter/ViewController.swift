@@ -25,5 +25,9 @@ class ViewController: UITabBarController {
         
         self.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
     }
+    
+    func firstTab() {
+        self.selectedIndex = 0
+    }
 }
 

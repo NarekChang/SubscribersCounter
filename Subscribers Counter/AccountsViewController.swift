@@ -59,8 +59,6 @@ class AccountsViewController: UIViewController, UITableViewDataSource {
         let defaults = UserDefaults.standard
         if let stringOne = defaults.string(forKey: "accounts") {
             let arrayList = stringOne.components(separatedBy: "|-|")
-            print("arrayList")
-            print(arrayList)
             self.list = arrayList
             
             configureAsList()

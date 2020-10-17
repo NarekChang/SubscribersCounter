@@ -12,6 +12,9 @@
 		C420AD8225336C8400793837 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C420AD8125336C8400793837 /* NickNameViewController.swift */; };
 		C46FFC8F252B940000B05002 /* WidgetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FFC8E252B940000B05002 /* WidgetsViewController.swift */; };
 		C46FFC92252B949A00B05002 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46FFC91252B949A00B05002 /* InfoViewController.swift */; };
+		C47AB517253B281100F86AEE /* ChooseAccontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47AB516253B281100F86AEE /* ChooseAccontViewController.swift */; };
+		C47AB51A253B387400F86AEE /* ChooseSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47AB519253B387400F86AEE /* ChooseSizeViewController.swift */; };
+		C47AB51D253B3A2600F86AEE /* ChooseColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47AB51C253B3A2600F86AEE /* ChooseColorViewController.swift */; };
 		C48B8617252A06F300D8F911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B8616252A06F300D8F911 /* AppDelegate.swift */; };
 		C48B8619252A06F300D8F911 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B8618252A06F300D8F911 /* SceneDelegate.swift */; };
 		C48B861B252A06F300D8F911 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B861A252A06F300D8F911 /* ViewController.swift */; };
@@ -25,6 +28,9 @@
 		C420AD8125336C8400793837 /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		C46FFC8E252B940000B05002 /* WidgetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsViewController.swift; sourceTree = "<group>"; };
 		C46FFC91252B949A00B05002 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		C47AB516253B281100F86AEE /* ChooseAccontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAccontViewController.swift; sourceTree = "<group>"; };
+		C47AB519253B387400F86AEE /* ChooseSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSizeViewController.swift; sourceTree = "<group>"; };
+		C47AB51C253B3A2600F86AEE /* ChooseColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorViewController.swift; sourceTree = "<group>"; };
 		C48B8613252A06F300D8F911 /* Subscribers Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Subscribers Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48B8616252A06F300D8F911 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48B8618252A06F300D8F911 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 				C48B8621252A06F300D8F911 /* LaunchScreen.storyboard */,
 				C48B8624252A06F300D8F911 /* Info.plist */,
 				C420AD7E2531EFEC00793837 /* ChooseSocialNetworkViewController.swift */,
+				C47AB519253B387400F86AEE /* ChooseSizeViewController.swift */,
+				C47AB51C253B3A2600F86AEE /* ChooseColorViewController.swift */,
+				C47AB516253B281100F86AEE /* ChooseAccontViewController.swift */,
 				C420AD8125336C8400793837 /* NickNameViewController.swift */,
 			);
 			path = "Subscribers Counter";
@@ -151,10 +160,13 @@
 				C48B861B252A06F300D8F911 /* ViewController.swift in Sources */,
 				C48B8617252A06F300D8F911 /* AppDelegate.swift in Sources */,
 				C46FFC8F252B940000B05002 /* WidgetsViewController.swift in Sources */,
+				C47AB51D253B3A2600F86AEE /* ChooseColorViewController.swift in Sources */,
 				C40EC178252B5EEB006B4FC2 /* AccountsViewController.swift in Sources */,
 				C420AD8225336C8400793837 /* NickNameViewController.swift in Sources */,
 				C46FFC92252B949A00B05002 /* InfoViewController.swift in Sources */,
+				C47AB517253B281100F86AEE /* ChooseAccontViewController.swift in Sources */,
 				C48B8619252A06F300D8F911 /* SceneDelegate.swift in Sources */,
+				C47AB51A253B387400F86AEE /* ChooseSizeViewController.swift in Sources */,
 				C420AD7F2531EFEC00793837 /* ChooseSocialNetworkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
