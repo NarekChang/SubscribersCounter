@@ -76,7 +76,7 @@ class WidgetsViewController: UIViewController, UITableViewDataSource {
         self.view.addSubview(addText)
         
         let goToAccountsList = UIAction(title: "GoToAccountsList") { (action) in
-            print("123")
+            self.navigationController?.pushViewController(ChooseAccontViewController(), animated: true)
         }
         let addBtn = UIButton(frame: CGRect(x: 0, y: topMargin + 48, width: self.view.bounds.size.width, height: 24), primaryAction: goToAccountsList)
         addBtn.setTitle("Add account", for: .normal)
@@ -106,16 +106,6 @@ class WidgetsViewController: UIViewController, UITableViewDataSource {
             .init(item: tableView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0),
             .init(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         ])
-        
-//        let goToAccountsList = UIAction(title: "GoToAccountsList") { (action) in
-//            let defaults = UserDefaults.standard
-//            if let stringOne = defaults.string(forKey: "accounts") {
-//                self.navigationController?.pushViewController(ChooseAccontViewController(), animated: true)
-//                print(stringOne)
-//            } else {
-//                MainTabBar.firstTab()
-//            }
-//        }
     }
     
     func updateView() {
@@ -173,9 +163,9 @@ class WidgetsViewController: UIViewController, UITableViewDataSource {
             let defaults = UserDefaults.standard
             
             if list.count == 0 {
-                defaults.removeObject(forKey: "accounts")
+                defaults.removeObject(forKey: "widgets")
             } else {
-                defaults.set("\(result)", forKey: "accounts")
+                defaults.set("\(result)", forKey: "widgets")
             }
             
             self.updateView()
@@ -207,22 +197,12 @@ final class Cell2: UITableViewCell {
         return imageView
     }()
     
-    private lazy var size: UILabel = {
+    private lazy var colorSize: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 17, weight: .regular)
-        label.textColor = UIColor.init(red: 129, green: 139, blue: 163, alpha: 1)
-        label.frame = CGRect(x: UIScreen.main.bounds.size.width - 100, y: 0, width: 100, height: 40)
-        
-        return label
-    }()
-    
-    private lazy var color: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 17, weight: .regular)
-        label.textColor = UIColor.init(red: 129, green: 139, blue: 163, alpha: 1)
-        
+        label.textColor = UIColor.gray
+        label.textAlignment = .right
         return label
     }()
     
@@ -244,8 +224,7 @@ final class Cell2: UITableViewCell {
         super.prepareForReuse()
         icon.image = nil
         title.text = nil
-        size.text = nil
-        color.text = nil
+        colorSize.text = nil
     }
     
     // Configure
@@ -253,8 +232,7 @@ final class Cell2: UITableViewCell {
     func configure(with model: Model) {
         icon.image = model.image
         title.text = model.title
-        color.text = model.color
-        size.text = model.size
+        colorSize.text = "\(model.color) · \(model.size)"
     }
     
     // MARK: - Private
@@ -262,8 +240,7 @@ final class Cell2: UITableViewCell {
     private func setupUI() {
         addSubview(title)
         addSubview(icon)
-        addSubview(size)
-        addSubview(color)
+        addSubview(colorSize)
         
         NSLayoutConstraint.activate([
             // Icon
@@ -275,7 +252,11 @@ final class Cell2: UITableViewCell {
             // Title
             .init(item: title, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0),
             .init(item: title, attribute: .leading, relatedBy: .equal, toItem: icon, attribute: .trailing, multiplier: 1, constant: 8),
-            .init(item: title, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
+            .init(item: title, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0),
+            
+            
+            .init(item: colorSize, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0),
+            .init(item: colorSize, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -16),
         ])
     }
 }
