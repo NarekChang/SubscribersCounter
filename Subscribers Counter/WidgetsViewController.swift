@@ -109,8 +109,8 @@ class WidgetsViewController: UIViewController, UITableViewDataSource {
     }
     
     func updateView() {
-        let defaults = UserDefaults.standard
-        if let stringOne = defaults.string(forKey: "widgets") {
+        let defaults = UserDefaults(suiteName: "group.subscribesCounter")
+        if let stringOne = defaults?.string(forKey: "widgets") {
             let arrayList = stringOne.components(separatedBy: "|-|")
             self.list = arrayList
             
@@ -160,12 +160,12 @@ class WidgetsViewController: UIViewController, UITableViewDataSource {
                 }
             }
             
-            let defaults = UserDefaults.standard
+            let defaults = UserDefaults(suiteName: "group.subscribesCounter")
             
             if list.count == 0 {
-                defaults.removeObject(forKey: "widgets")
+                defaults?.removeObject(forKey: "widgets")
             } else {
-                defaults.set("\(result)", forKey: "widgets")
+                defaults?.set("\(result)", forKey: "widgets")
             }
             
             self.updateView()

@@ -51,7 +51,7 @@ class NickNameViewController: UIViewController {
     }
 
     func saveAccount() {
-        let defaults = UserDefaults.standard
+        let defaults = UserDefaults(suiteName: "group.subscribesCounter")
         
         struct Account: Codable {
             var name: String
@@ -59,7 +59,7 @@ class NickNameViewController: UIViewController {
         }
         
         do {
-            if let stringOne = defaults.string(forKey: "accounts") {
+            if let stringOne = defaults?.string(forKey: "accounts") {
                 var stringTwo = stringOne
                 let acc = Account(name: nickname, soc: currSocialNetwork)
                 
@@ -69,7 +69,7 @@ class NickNameViewController: UIViewController {
                 stringTwo.append("|-|" )
                 stringTwo.append(jsonStringAcc ?? "")
                 
-                defaults.set("\(stringTwo)", forKey: "accounts")
+                defaults?.set("\(stringTwo)", forKey: "accounts")
             } else {
                 var stringTwo = ""
                 let acc = Account(name: nickname, soc: currSocialNetwork)
@@ -79,7 +79,8 @@ class NickNameViewController: UIViewController {
                 
                 stringTwo.append(jsonStringAcc ?? "")
                 
-                defaults.set(stringTwo, forKey: "accounts")
+                defaults?.set(stringTwo, forKey: "accounts")
+                UserDefaults(suiteName: "group.subscribesCounter")?.set(stringTwo, forKey: "accounts")
             }
         } catch {
             //handle error

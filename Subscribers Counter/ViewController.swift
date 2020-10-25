@@ -13,15 +13,19 @@ class ViewController: UITabBarController {
         
         self.view.backgroundColor = UIColor.systemBackground
         
+        if (UserDefaults(suiteName: "group.subscribesCounter") == nil) {
+            UserDefaults.init(suiteName: "group.subscribesCounter")
+        }
+        
         let accountsVC = AccountsViewController()
-        let widgetsVC = WidgetsViewController()
+//        let widgetsVC = WidgetsViewController()
         let infoVC = InfoViewController()
         
         accountsVC.tabBarItem = UITabBarItem(title: "Accounts", image: UIImage(named: "accounts"), tag: 0)
-        widgetsVC.tabBarItem = UITabBarItem(title: "Widgets", image: UIImage(named: "widgets"), tag: 1)
+//        widgetsVC.tabBarItem = UITabBarItem(title: "Widgets", image: UIImage(named: "widgets"), tag: 1)
         infoVC.tabBarItem = UITabBarItem(title: "Info", image: UIImage(named: "info"), tag: 2)
         
-        let controllers = [accountsVC, widgetsVC, infoVC]
+        let controllers = [accountsVC, infoVC]
         
         self.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
     }

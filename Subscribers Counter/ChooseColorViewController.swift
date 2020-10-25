@@ -47,7 +47,7 @@ class ChooseColorViewController: UIViewController, UITableViewDataSource {
         title.textAlignment = .left
         title.lineBreakMode = .byWordWrapping
         title.numberOfLines = 0
-        title.text = "Choose size"
+        title.text = "Choose color"
         title.font = titleFont
         self.view.addSubview(title)
         
@@ -115,9 +115,9 @@ extension ChooseColorViewController: UITableViewDelegate {
             let iconName = json["soc"] as? String
         else { fatalError() }
         
-        let defaults = UserDefaults.standard
+        let defaults = UserDefaults(suiteName: "group.subscribesCounter")
         do {
-            if let stringOne = defaults.string(forKey: "widgets") {
+            if let stringOne = defaults?.string(forKey: "widgets") {
                 var stringTwo = stringOne
                 let acc = Widget(name: name, soc: iconName, size: self.sizeStr, color: currItem)
                 
@@ -127,7 +127,7 @@ extension ChooseColorViewController: UITableViewDelegate {
                 stringTwo.append("|-|" )
                 stringTwo.append(jsonStringAcc ?? "")
                 
-                defaults.set("\(stringTwo)", forKey: "widgets")
+                defaults?.set("\(stringTwo)", forKey: "widgets")
             } else {
                 var stringTwo = ""
                 let acc = Widget(name: name, soc: iconName, size: self.sizeStr, color: currItem)
@@ -137,7 +137,7 @@ extension ChooseColorViewController: UITableViewDelegate {
                 
                 stringTwo.append(jsonStringAcc ?? "")
                 
-                defaults.set(stringTwo, forKey: "widgets")
+                defaults?.set(stringTwo, forKey: "widgets")
             }
         } catch {
             //handle error

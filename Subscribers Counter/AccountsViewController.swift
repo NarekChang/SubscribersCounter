@@ -56,8 +56,8 @@ class AccountsViewController: UIViewController, UITableViewDataSource {
     }
     
     func updateView() {
-        let defaults = UserDefaults.standard
-        if let stringOne = defaults.string(forKey: "accounts") {
+        let defaults = UserDefaults(suiteName: "group.subscribesCounter")
+        if let stringOne = defaults?.string(forKey: "accounts") {
             let arrayList = stringOne.components(separatedBy: "|-|")
             self.list = arrayList
             
@@ -176,12 +176,12 @@ class AccountsViewController: UIViewController, UITableViewDataSource {
                 }
             }
             
-            let defaults = UserDefaults.standard
+            let defaults = UserDefaults(suiteName: "group.subscribesCounter")
             
             if list.count == 0 {
-                defaults.removeObject(forKey: "accounts")
+                defaults?.removeObject(forKey: "accounts")
             } else {
-                defaults.set("\(result)", forKey: "accounts")
+                defaults?.set("\(result)", forKey: "accounts")
             }
             
             self.updateView()

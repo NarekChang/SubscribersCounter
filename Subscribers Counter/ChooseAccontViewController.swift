@@ -51,8 +51,8 @@ class ChooseAccontViewController: UIViewController, UITableViewDataSource {
     }
     
     func updateView() {
-        let defaults = UserDefaults.standard
-        if let stringOne = defaults.string(forKey: "accounts") {
+        let defaults = UserDefaults(suiteName: "group.subscribesCounter")
+        if let stringOne = defaults?.string(forKey: "accounts") {
             let arrayList = stringOne.components(separatedBy: "|-|")
             self.list = arrayList
             
@@ -123,8 +123,9 @@ class ChooseAccontViewController: UIViewController, UITableViewDataSource {
 extension ChooseAccontViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currItem = self.list[indexPath.row]
-        let vc = ChooseSizeViewController()
+        let vc = ChooseColorViewController()
         vc.accountStr = currItem
+        vc.sizeStr = "default"
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
